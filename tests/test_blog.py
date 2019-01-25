@@ -19,4 +19,7 @@ def test_blog_posts(MockBlog):
     assert isinstance(response[0], dict)
 
     assert MockBlog.called
-    print(blog.posts.assert_called_with())
+    blog.posts.assert_called_with()
+    blog.posts.assert_called_once_with()
+    blog.reset_mock()
+    blog.posts.assert_not_called()
